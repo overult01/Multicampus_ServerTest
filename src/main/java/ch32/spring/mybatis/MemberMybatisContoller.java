@@ -23,7 +23,7 @@ public class MemberMybatisContoller {
 		ModelAndView mv = new ModelAndView();
 		List<MemberDTO> list = service.memberlist();
 		mv.addObject("memberlist", list);
-		mv.setViewName("ch32_mybatis/memberlist");
+		mv.setViewName("ch24_mybatis/memberlist");
 		return mv;
 	}
 	
@@ -33,7 +33,7 @@ public class MemberMybatisContoller {
 		List<MemberDTO> list = service.memberlist(page);
 		mv.addObject("memberlist", list);
 		mv.addObject("name", "페이징처리리스트"); // 전달되는 모델이 2개. name 속성에 추가.
-		mv.setViewName("ch32_mybatis/memberlist");		
+		mv.setViewName("ch24_mybatis/memberlist");		
 		return mv;
 	}
 	
@@ -43,13 +43,13 @@ public class MemberMybatisContoller {
 		List<String> list = service.memberlist(address);
 		mv.addObject("memberaddresslist", list);
 		mv.addObject("name", "주소검색리스트"); 
-		mv.setViewName("ch32_mybatis/memberlist");				
+		mv.setViewName("ch24_mybatis/memberlist");				
 		return mv;
 	}
 	
 	@GetMapping("/membermybatisinsert")
 	public String insertform() {
-		return "ch32_mybatis/insertform";		
+		return "ch24_mybatis/insertform";		
 	}
 	
 	@PostMapping("/membermybatisinsert")
@@ -60,13 +60,13 @@ public class MemberMybatisContoller {
 		ModelAndView mv = new ModelAndView();
 		int insertrow = service.insertmember(dto);
 		mv.addObject("insertresult", insertrow); // int타입의 모델 1개 전달
-		mv.setViewName("ch32_mybatis/insertresult");				
+		mv.setViewName("ch24_mybatis/insertresult");				
 		return mv;
 	}
 	
 	@GetMapping("/membermybatisupdate")
 	public String updatefrom(String id) {
-		return "ch32_mybatis/updateform";
+		return "ch24_mybatis/updateform";
 	}
 	
 	@PostMapping("/membermybatisupdate")
@@ -75,7 +75,7 @@ public class MemberMybatisContoller {
 		ModelAndView mv = new ModelAndView();
 		int updaterow = service.updatemember(dto);
 		mv.addObject("updateresult", updaterow); // int타입의 모델 1개 전달
-		mv.setViewName("ch32_mybatis/updateresult");				
+		mv.setViewName("ch24_mybatis/updateresult");				
 		return mv;
 	}
 	
